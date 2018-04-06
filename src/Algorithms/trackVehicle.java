@@ -1,22 +1,19 @@
 package Algorithms;
 
-
 public class trackVehicle {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		while(true)
-		{
+	public static void main(String[] args) throws Exception {
+	
+		while(true)		{
+			//Start the Reader
 			startUp._startReader_(args);
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			//Send observed tag data to RabbitMQ Server
+			sendRabbit._sendData_();
+			
 		}
 		
-	//	startUp._startReader_(args);
+	
 	}
 
 }
+ 

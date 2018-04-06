@@ -1,6 +1,5 @@
 package Algorithms;
 
-//import com.example.sdksamples.TagReportListenerImplementation;
 import com.impinj.octane.*;
 
 public class startUp {
@@ -26,7 +25,7 @@ public class startUp {
 	         settings.getReport().setIncludePeakRssi(false);
 	         settings.getReport().setIncludeAntennaPortNumber(true);
 	
-	         // set just one specific antenna for this example
+	         // setting antennas
 	         AntennaConfigGroup ac = settings.getAntennas();
 	
 	         ac.disableAll();
@@ -46,17 +45,17 @@ public class startUp {
 	         reader.setTagReportListener(new TagReportListenerImplementation());
 	         
 	         // Start the reader
-//	         while(true) {
-	         reader.start();//}
+	         reader.start();
          try {
-	 			Thread.sleep(100);
+	 			Thread.sleep(500);
 	 		} catch (InterruptedException e) {
 	 			// TODO Auto-generated catch block
 	 			e.printStackTrace();
 	 		}
+         	// Stop the reader
 	        reader.stop();
-	   
-	         reader.disconnect();
+	        // Disconnect the reader
+	        reader.disconnect();
 	    	    
 		}catch (OctaneSdkException ex) {
             System.out.println("Exception in Reader Operation"+ ex.toString());
