@@ -28,7 +28,7 @@ def callback(ch, method, properties, body):
 		status = "IN"
 #		dbInsert(vehID,data[0],data[2],status)
 		print(vehID,data[0],data[2],status)
-	else:
+	elif(int(data[1])==2):
 		status = "OUT"
 #		dbInsert(vehID,data[0],data[2],status)
 		print(vehID,data[0],data[2],status)
@@ -37,11 +37,7 @@ credentials = pika.PlainCredentials('amuda', 'amuda2017')
 parameters = pika.ConnectionParameters('172.17.137.160',5672,'amudavhost',credentials)
 connection = pika.BlockingConnection(parameters)
 channel = connection.channel()
-q = channel.queue_declare()
-
-channel.queue_declare(queue = "", exclusive = True)
 channel.queue_bind(exchange = "amq.fanout", queue = "vehicle", routing_key = None)
-
 channel.basic_consume(callback, "vehicle",no_ack=True)
 print(' [*] Waiting for messages. To exit press CTRL+C')
 channel.start_consuming()
