@@ -33,15 +33,16 @@ public class TagReportListenerImplementation implements TagReportListener {
         for (Tag t : tags) {
 
 			Date now = new Date();
-			SimpleDateFormat ft = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			ft.format(now);
+			SimpleDateFormat timeformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
 			  
 			String epc= t.getEpc().toString();
 			int port = t.getAntennaPortNumber();
-			String time = ft.format(now);
+			String time = timeformat.format(now);
+			String date = dateformat.format(now);
 			          
 			  
-			String mes = epc+","+port+","+time;
+			String mes = epc+","+port+","+time+","+date;
 			String key = epc; 					
 			
 			hm.putIfAbsent(key, mes);
@@ -58,8 +59,4 @@ public class TagReportListenerImplementation implements TagReportListener {
     
       	}  catch(Exception e){System.out.println("Exception in HashMap Iteration");}
     }
-    
- /*   public static HashMap<String, String> getdata() {
-        return hm;
-   }  */
 }

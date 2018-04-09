@@ -47,7 +47,8 @@ public class startUp {
 	         // Start the reader
 	         reader.start();
          try {
-	 			Thread.sleep(500);
+//	 			Thread.sleep(60000); // for 1 minute
+	 			Thread.sleep(2000);
 	 		} catch (InterruptedException e) {
 	 			// TODO Auto-generated catch block
 	 			e.printStackTrace();

@@ -16,8 +16,8 @@ public class sendRabbit {
 		//RabbitMQ Server Credentials
     	ConnectionFactory factory = new ConnectionFactory();
     	factory.setAutomaticRecoveryEnabled(false);
-    	factory.setUsername("amudalab3");
-    	factory.setPassword("amudalab");
+    	factory.setUsername("amuda");
+    	factory.setPassword("amuda2017");
     	factory.setHost("172.17.137.160");
     	factory.setPort(5672);
     	factory.setVirtualHost("amudavhost");
